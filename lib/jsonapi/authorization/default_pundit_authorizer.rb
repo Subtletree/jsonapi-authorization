@@ -168,7 +168,8 @@ module JSONAPI
       # * +source_record+ - The record whose relationship is modified
       # * +new_related_records+ - The new records to be added to the association
       # * +relationship_type+ - The relationship type
-      def create_to_many_relationship(source_record:,
+      def create_to_many_relationship(
+        source_record:,
         nested_path: false,
         new_related_records:,
         relationship_type:
