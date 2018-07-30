@@ -144,7 +144,12 @@ module JSONAPI
       # * +source_record+ - The record whose relationship is modified
       # * +new_related_record+ - The new record replacing the old record
       # * +relationship_type+ - The relationship type
-      def replace_to_one_relationship(source_record:, nested_path: false, new_related_record:, relationship_type:)
+      def replace_to_one_relationship(
+        source_record:,
+        nested_path: false,
+        new_related_record:,
+        relationship_type:
+      )
         relationship_method = "replace_#{relationship_type}?"
         authorize_relationship_operation(
           source_record: source_record,
@@ -163,7 +168,11 @@ module JSONAPI
       # * +source_record+ - The record whose relationship is modified
       # * +new_related_records+ - The new records to be added to the association
       # * +relationship_type+ - The relationship type
-      def create_to_many_relationship(source_record:, nested_path: false, new_related_records:, relationship_type:)
+      def create_to_many_relationship(source_record:,
+        nested_path: false,
+        new_related_records:,
+        relationship_type:
+      )
         relationship_method = "add_to_#{relationship_type}?"
         authorize_relationship_operation(
           source_record: source_record,
@@ -183,7 +192,12 @@ module JSONAPI
       # * +new_related_records+ - The new records replacing the entire +has_many+
       #   association
       # * +relationship_type+ - The relationship type
-      def replace_to_many_relationship(source_record:, nested_path: false, new_related_records:, relationship_type:)
+      def replace_to_many_relationship(
+        source_record:,
+        nested_path: false,
+        new_related_records:,
+        relationship_type:
+      )
         relationship_method = "replace_#{relationship_type}?"
         authorize_relationship_operation(
           source_record: source_record,
@@ -312,7 +326,11 @@ module JSONAPI
         end
       end
 
-      def authorize_related_records(source_record:, nested_path: false, related_records_with_context:)
+      def authorize_related_records(
+        source_record:,
+        nested_path: false,
+        related_records_with_context:
+      )
         related_records_with_context.each do |data|
           relation_type = data[:relation_type]
           relation_name = data[:relation_name]

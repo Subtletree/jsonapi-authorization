@@ -13,7 +13,7 @@ module JSONAPI
         end
 
         def build_policy_path(model_class)
-          nested_paths = self.name.underscore.split('/')[0...-1].map(&:to_sym)
+          nested_paths = name.underscore.split('/')[0...-1].map(&:to_sym)
           nested_paths.any? ? nested_paths << model_class : model_class
         end
       end
